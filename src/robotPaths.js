@@ -39,6 +39,7 @@ class RobotPaths {
         return;
       }
       if (this.board.hasBeenVisited(row, col)) {
+        return;
       } else {
         this.board.togglePiece(row, col);
         findPaths(row, col + 1);

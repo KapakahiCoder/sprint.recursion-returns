@@ -12,7 +12,6 @@ const getElementsByClassName = (className) => {
     }
   }
   traverse(document.body);
-  console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", result);
   return result;
 };
 
