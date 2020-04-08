@@ -23,21 +23,34 @@ class RobotPaths {
   // you may want to change this code later on, too
   constructor(size) {
     this.board = new Board(size);
+    this.size = size;
     this.row = 0;
     this.col = 0;
   }
 
   solve() {
-    // Your code here.
-    const result = 0;
-    console.log("SSSSSSSSSSSSSSSSSSS", this.board, this.row, this.col);
-    if (this.board[this.row - 1][this.col - 1]) {
-      return 1;
-    } else {
-      this.board[0][0];
-    }
-    return result;
+    let numberOfPaths = 0;
+    const findPaths = (row, col) => {
+      if (row === this.size - 1 && col === this.size - 1) {
+        numberOfPaths++;
+        return;
+      }
+      if (row < 0 || row >= this.size || col < 0 || col >= this.size) {
+        return;
+      }
+      if (this.board.hasBeenVisited(row, col)) {
+      } else {
+        this.board.togglePiece(row, col);
+        findPaths(row, col + 1);
+        findPaths(row + 1, col);
+        findPaths(row, col - 1);
+        findPaths(row - 1, col);
+        this.board.togglePiece(row, col);
+      }
+    };
+
+    findPaths(0, 0);
+    return numberOfPaths;
   }
 }
-
 module.exports = { RobotPaths };
