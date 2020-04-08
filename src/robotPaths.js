@@ -29,6 +29,14 @@ class RobotPaths {
 
   solve() {
     // Your code here.
+    const result = 0;
+    console.log("SSSSSSSSSSSSSSSSSSS", this.board, this.row, this.col);
+    if (this.board[this.row - 1][this.col - 1]) {
+      return 1;
+    } else {
+      this.board[0][0];
+    }
+    return result;
   }
 }
 
